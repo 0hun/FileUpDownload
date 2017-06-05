@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app >
+	<servlet>
+		<servlet-name>DBCPInit</servlet-name>
+		<servlet-class>com.jdbc.loader.DBCPInit</servlet-class>
+		<init-param>
+			<param-name>jdbcdriver</param-name>
+			<param-value>com.mysql.jdbc.Driver</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet>
+		<servlet-name>FileUploadServlet</servlet-name>
+		<servlet-class>com.pds.controller.FileUploadServlet</servlet-class>
+		<multipart-config>
+			<location>C:\uploadTemp</location>
+			<file-size-threshold>102400</file-size-threshold>
+			<max-file-size>-1</max-file-size>
+			<max-request-size>-1</max-request-size>
+		</multipart-config>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>FileUploadServlet</servlet-name>
+		<url-pattern>/fileUpload</url-pattern>
+	</servlet-mapping>
+</web-app>
